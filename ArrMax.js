@@ -1,21 +1,94 @@
 'use strict';
 
 class ArrMath{
-    static max(_arrayData, _outputCnt){
-        const len = Math.floor(_arrayData.length/_outputCnt);
+    static maxMapL(arrayData, outputCnt){
+        const len = Math.floor(arrayData.length/outputCnt);
         let _tmp = [];
-        const _arr = [];
+        const arr = [];
     
-        _arrayData.map((data) => {
+        arrayData.map((data) => {
             _tmp.push(data);
             if(_tmp.length === len){
-                _arr.push(_tmp);
+                arr.push(_tmp);
                 _tmp = [];
             }
         });
+
+        if(_tmp.length > 0){ arr.push(_tmp); }
         
-        console.log(_arr);
-        return _arr;
+        // console.log(arr);
+        return arr;
+    }
+
+    static maxMapQ(arrayData, outputCnt){
+        let _tmp = [];
+        const arr = [];
+    
+        arrayData.map((data, idx) => {
+            _tmp.push(data);
+            if(idx%outputCnt === outputCnt-1){
+                arr.push(_tmp);
+                _tmp = [];
+            }
+        });
+
+        if(_tmp.length > 0){ arr.push(_tmp); }
+        
+        // console.log(arr);
+        return arr;
+    }
+
+    static maxReduce(arrayData, outputCnt){
+        const arr = [];
+        let _tmp = [];
+        arrayData.reduce((pre, cur, idx) => {
+            _tmp.push(cur);
+            if(idx%outputCnt === outputCnt-1){
+                arr.push(_tmp);
+                _tmp = [];
+            }            
+        })
+
+        if(_tmp.length > 0){ arr.push(_tmp); }
+
+        // console.log(arr);
+        return arr;
+    }
+
+    static maxForeach(arrayData, outputCnt){
+        const arr = [];
+        let _tmp = [];
+        arrayData.forEach((data, idx) => {
+            _tmp.push(data);
+            if(idx%outputCnt === outputCnt-1){
+                arr.push(_tmp);
+                _tmp = [];
+            }            
+        })
+
+        if(_tmp.length > 0){ arr.push(_tmp); }
+
+        // console.log(arr);
+        return arr;
+    }
+
+    static maxFor(arrayData, outputCnt){
+        const len = arrayData.length;
+        const arr = [];
+        let _tmp = [];
+
+        for(let idx=0; idx<len; idx++){
+            _tmp.push(arrayData[idx]);
+            if(idx%outputCnt === outputCnt-1){
+                arr.push(_tmp);
+                _tmp = [];
+            }
+        }
+
+        if(_tmp.length > 0){ arr.push(_tmp); }
+
+        // console.log(arr);
+        return arr;
     }
 }
 
