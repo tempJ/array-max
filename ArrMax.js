@@ -2,7 +2,7 @@
 
 class ArrMath{
     // static _tmp = [];
-    static maxMapL(arrayData, outputCnt){
+    static maxMapLen(arrayData, outputCnt){
         const len = Math.floor(arrayData.length/outputCnt);
         let _tmp = [];
         const arr = [];
@@ -27,13 +27,14 @@ class ArrMath{
         return arr;
     }
 
-    static maxMapQ(arrayData, outputCnt){
-        let _tmp = [];
+    static maxMapIdx(arrayData, outputCnt){
+        const len = Math.floor(arrayData.length/outputCnt);
         const arr = [];
+        let _tmp = [];
     
         arrayData.map((data, idx) => {
             _tmp.push(data);
-            if(idx%outputCnt === outputCnt-1){
+            if(idx%len === len-1){
                 // arr.push(_tmp);
                 arr.push(Math.max.apply(null, _tmp));
                 _tmp = [];
@@ -50,12 +51,15 @@ class ArrMath{
     }
 
     static maxReduce(arrayData, outputCnt){
+        const len = Math.floor(arrayData.length/outputCnt);
         const arr = [];
         let _tmp = [];
         arrayData.reduce((pre, cur, idx) => {
             _tmp.push(cur);
-            if(idx%outputCnt === outputCnt-1){
+            
+            if(idx%len === len-1){
                 // arr.push(_tmp);
+                // console.log(`${idx}, ${idx%outputCnt}, ${outputCnt-1}`);
                 arr.push(Math.max.apply(null, _tmp));
                 _tmp = [];
             }            
@@ -65,17 +69,18 @@ class ArrMath{
             arr.push(Math.max.apply(null, _tmp));
             // arr.push(_tmp);
         }
-
+        // console.log(arr.length);
         // console.log(arr);
         return arr;
     }
 
     static maxForeach(arrayData, outputCnt){
+        const len = Math.floor(arrayData.length/outputCnt);
         const arr = [];
         let _tmp = [];
         arrayData.forEach((data, idx) => {
             _tmp.push(data);
-            if(idx%outputCnt === outputCnt-1){
+            if(idx%len === len-1){
                 // arr.push(_tmp);
                 arr.push(Math.max.apply(null, _tmp));
                 _tmp = [];
@@ -92,13 +97,13 @@ class ArrMath{
     }
 
     static maxFor(arrayData, outputCnt){
-        const len = arrayData.length;
+        const len = Math.floor(arrayData.length/outputCnt);
         const arr = [];
         let _tmp = [];
 
         for(let idx=0; idx<len; idx++){
             _tmp.push(arrayData[idx]);
-            if(idx%outputCnt === outputCnt-1){
+            if(idx%len === len-1){
                 // arr.push(_tmp);
                 arr.push(Math.max.apply(null, _tmp));
                 _tmp = [];

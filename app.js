@@ -2,8 +2,8 @@
 
 const arrMax = require('./ArrMax');
 
-const NUM = 1000000;
-const CNT = 10000;
+const NUM = 10003;
+const CNT = 10;
 
 let now, end, time;
 
@@ -16,13 +16,13 @@ for(let i=0; i<NUM; i++){
 // console.log(`data: ${data}`);
 
 now = new Date();
-arrMax.maxMapL(data, CNT);
+arrMax.maxMapLen(data, CNT);
 end = new Date();
 time = end - now;
 console.log(`maxMap-use len: ${time} ms`);
 
 now = new Date();
-arrMax.maxMapQ(data, CNT);
+arrMax.maxMapIdx(data, CNT);
 end = new Date();
 time = end - now;
 console.log(`maxMap-use %: ${time} ms`);
