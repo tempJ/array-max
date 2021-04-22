@@ -1,6 +1,7 @@
 'use strict';
 
 class ArrMath{
+    // static _tmp = [];
     static maxMapL(arrayData, outputCnt){
         const len = Math.floor(arrayData.length/outputCnt);
         let _tmp = [];
@@ -9,12 +10,18 @@ class ArrMath{
         arrayData.map((data) => {
             _tmp.push(data);
             if(_tmp.length === len){
-                arr.push(_tmp);
+                // arr.push(_tmp);
+                // console.log(_tmp);
+                // console.log(Math.max.apply(null, _tmp));
+                arr.push(Math.max.apply(null, _tmp));
                 _tmp = [];
             }
         });
 
-        if(_tmp.length > 0){ arr.push(_tmp); }
+        if(_tmp.length > 0){
+            arr.push(Math.max.apply(null, _tmp));
+            // arr.push(_tmp);
+        }
         
         // console.log(arr);
         return arr;
@@ -27,12 +34,16 @@ class ArrMath{
         arrayData.map((data, idx) => {
             _tmp.push(data);
             if(idx%outputCnt === outputCnt-1){
-                arr.push(_tmp);
+                // arr.push(_tmp);
+                arr.push(Math.max.apply(null, _tmp));
                 _tmp = [];
             }
         });
 
-        if(_tmp.length > 0){ arr.push(_tmp); }
+        if(_tmp.length > 0){
+            arr.push(Math.max.apply(null, _tmp));
+            // arr.push(_tmp);
+        }
         
         // console.log(arr);
         return arr;
@@ -44,12 +55,16 @@ class ArrMath{
         arrayData.reduce((pre, cur, idx) => {
             _tmp.push(cur);
             if(idx%outputCnt === outputCnt-1){
-                arr.push(_tmp);
+                // arr.push(_tmp);
+                arr.push(Math.max.apply(null, _tmp));
                 _tmp = [];
             }            
         })
 
-        if(_tmp.length > 0){ arr.push(_tmp); }
+        if(_tmp.length > 0){
+            arr.push(Math.max.apply(null, _tmp));
+            // arr.push(_tmp);
+        }
 
         // console.log(arr);
         return arr;
@@ -61,12 +76,16 @@ class ArrMath{
         arrayData.forEach((data, idx) => {
             _tmp.push(data);
             if(idx%outputCnt === outputCnt-1){
-                arr.push(_tmp);
+                // arr.push(_tmp);
+                arr.push(Math.max.apply(null, _tmp));
                 _tmp = [];
             }            
         })
 
-        if(_tmp.length > 0){ arr.push(_tmp); }
+        if(_tmp.length > 0){
+            arr.push(Math.max.apply(null, _tmp));
+            // arr.push(_tmp);
+        }
 
         // console.log(arr);
         return arr;
@@ -80,12 +99,16 @@ class ArrMath{
         for(let idx=0; idx<len; idx++){
             _tmp.push(arrayData[idx]);
             if(idx%outputCnt === outputCnt-1){
-                arr.push(_tmp);
+                // arr.push(_tmp);
+                arr.push(Math.max.apply(null, _tmp));
                 _tmp = [];
             }
         }
 
-        if(_tmp.length > 0){ arr.push(_tmp); }
+        if(_tmp.length > 0){
+            arr.push(Math.max.apply(null, _tmp));
+            // arr.push(_tmp);
+        }
 
         // console.log(arr);
         return arr;

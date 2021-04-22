@@ -2,8 +2,8 @@
 
 const arrMax = require('./ArrMax');
 
-const NUM = 12345678;
-const CNT = 1000;
+const NUM = 1000000;
+const CNT = 10000;
 
 let now, end, time;
 
