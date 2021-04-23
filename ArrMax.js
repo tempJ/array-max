@@ -176,7 +176,7 @@ class ArrMath{
         // const isFloor = (length%outputCnt === 0)? false : true;
 
         const arr = [];
-        let _tmp = [];
+        // let _tmp = [];
 
         for(let start=0;; start += len){
             if(start === len*(outputCnt - 1)) { break; }
