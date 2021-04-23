@@ -143,7 +143,7 @@ class ArrMath{
         return arr;
     }
 
-    static maxFor(arrayData, outputCnt){
+    static maxForLength(arrayData, outputCnt){
         const length = arrayData.length;
         const len = Math.floor(length/outputCnt);
         const isFloor = (length%outputCnt === 0)? false : true;
@@ -166,7 +166,38 @@ class ArrMath{
             // console.log(_tmp);
             // arr.push(_tmp);
         }
+        // console.log(arr);
+        return arr;
+    }
 
+    static maxForCnt(arrayData, outputCnt){
+        const length = arrayData.length;
+        const len = Math.floor(length/outputCnt);
+        // const isFloor = (length%outputCnt === 0)? false : true;
+
+        const arr = [];
+        let _tmp = [];
+
+        for(let start=0;; start += len){
+            if(start === len*(outputCnt - 1)) { break; }
+            arr.push(Math.max.apply(null, arrayData.slice(start, start+len)));
+            // _tmp.push(arrayData[idx]);
+            // if(idx%len === len-1){
+            //     // arr.push(_tmp);
+            //     arr.push(Math.max.apply(null, _tmp));
+            //     _tmp = [];
+            // }
+        }
+        arr.push(Math.max.apply(null, arrayData.slice(len*(outputCnt-1), length)));
+        // console.log(arrayData.slice(len*(outputCnt-1), length));
+
+        // if(isFloor){
+        //     _tmp.push(arr.pop());
+        //     arr.push(Math.max.apply(null, _tmp));
+        //     // console.log(_tmp);
+        //     // arr.push(_tmp);
+        // }
+        // console.log(arr);
         return arr;
     }
 }

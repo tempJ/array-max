@@ -1,3 +1,4 @@
 #!/bin/bash
 
-node --stack-size=1000000 app.js
+node --stack-size=1000000 --max-old-space-size=10000 app.js
+# node --stack-size=12345678 app.js
